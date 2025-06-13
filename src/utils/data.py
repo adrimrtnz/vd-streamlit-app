@@ -15,6 +15,7 @@ groups = [
     'United States'
     ]
 
+@st.cache_data
 def load_annual_papers_data():
     """
     Loads and processes the annual scholarly publications data.
@@ -103,7 +104,7 @@ def annual_papers():
                      title=f'Publicaciones anuales de {entity}')
         st.plotly_chart(fig, use_container_width=True) # ensure use_container_width
 
-
+@st.cache_data
 def load_global_investment_data():
     """
     Loads and processes the global investment data in generative AI.
@@ -187,6 +188,7 @@ def global_investment():
                 )
             col_index += 1
 
+@st.cache_data
 def load_private_ai_investment_data():
     """
     Loads and processes the total private AI investment data.
@@ -216,7 +218,7 @@ def load_private_ai_investment_data():
     df['Investment'] = df['Investment'] / 1e9
     return df
 
-
+@st.cache_data
 def load_annual_papers_map_data():
     """
     Loads and prepares data for the annual scholarly papers map.
@@ -321,7 +323,7 @@ def load_annual_papers_map_data():
         world_geo_df = gpd.GeoDataFrame() 
     return papers_df, world_geo_df
 
-
+@st.cache_data
 def load_annual_investment_map_data():
     """
     Loads and processes data for the annual private AI investment map.
