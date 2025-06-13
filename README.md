@@ -5,7 +5,7 @@
 - **Titulación**: Máster en Inteligencia Artificial, Reconocimiento de Formas e Imagen Digital (MIARFID)
 - **Institudión**: Universidad Politécnica de Valencia (UPV)
 
-El objetivo del proyecto es desrrollar y publicar una página de visualización de datos utilizando la librería `streamlit` y `streamlit cloud`.
+El objetivo del proyecto es desarrollar y publicar una página de visualización de datos utilizando la librería `streamlit` y `streamlit cloud`.
 
 ## 🏆 Objetivo
 
