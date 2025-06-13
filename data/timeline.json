@@ -138,6 +138,21 @@
         },
         {
             "media": {
+                "url": "https://youtu.be/Eug2clsLtFs?si=stOrG6PkurKTKvAd",
+                "caption": "While large language models (LLMs) have demonstrated impressive capabilities across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting (e.g. action plan generation) have primarily been studied as separate topics."
+            },
+            "start_date": {
+                "year": 2022,
+                "month": 10,
+                "day": 6
+            },
+            "text": {
+                "headline": "ReAct: Synergizing Reasoning and Acting in Language Models",
+                "text": "While large language models (LLMs) have demonstrated impressive capabilities across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting (e.g. action plan generation) have primarily been studied as separate topics."
+            }
+        },
+        {
+            "media": {
                 "url": "https://youtu.be/aMHAhA1v9Zc?si=rzkTjjUIK_sgoktp",
                 "caption": "Recent generations of frontier language models have introduced Large Reasoning Models (LRMs) that generate detailed thinking processes before providing answers. While these models demonstrate improved performance on reasoning benchmarks, their fundamental capabilities, scaling properties, and limitations remain insufficiently understood.[...]"
             },
