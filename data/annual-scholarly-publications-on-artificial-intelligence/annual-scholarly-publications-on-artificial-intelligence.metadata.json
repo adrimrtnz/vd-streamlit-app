@@ -1,0 +1,41 @@
+{
+  "chart": {
+    "title": "Annual scholarly publications on artificial intelligence",
+    "subtitle": "English- and Chinese-language scholarly publications related to the development and application of AI. This includes journal articles, conference papers, repository publications (such as arXiv), books, and theses.",
+    "citation": "Center for Security and Emerging Technology (2025)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence?v=1&csvType=full&useColumnShortNames=false",
+    "selection": [
+      "United States",
+      "United Kingdom",
+      "Germany",
+      "China",
+      "World"
+    ]
+  },
+  "columns": {
+    "Number of articles - Field: All": {
+      "titleShort": "Number of articles - All",
+      "titleLong": "Number of articles - All",
+      "descriptionShort": "English- and Chinese-language scholarly publications related to the development and application of AI. This includes journal articles, conference papers, repository publications (such as arXiv), books, and theses.",
+      "descriptionKey": [
+        "CSET sources the data on the number of articles and citations from the Merged Academic Corpus (MAC), which includes over 260 million academic articles.",
+        "Articles are marked as AI — related using an automated system.",
+        "Articles are linked to countries based on the authors’ listed organizations. If at least one author is from an institution in a country, the article counts for that country.",
+        "If authors are from multiple countries, the article counts once for each country, but only once per country even if there are multiple authors from the same place.",
+        "For example, an article with authors from both the U.S. and Japan counts once for each."
+      ],
+      "unit": "articles",
+      "timespan": "2014-2022",
+      "type": "Integer",
+      "owidVariableId": 1026266,
+      "shortName": "num_articles__field_all",
+      "lastUpdated": "2025-04-18",
+      "nextUpdate": "2026-04-18",
+      "citationShort": "Center for Security and Emerging Technology (2025) – processed by Our World in Data",
+      "citationLong": "Center for Security and Emerging Technology (2025) – processed by Our World in Data. “Number of articles - All” [dataset]. Center for Security and Emerging Technology, “Country Activity Tracker: Artificial Intelligence” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1026266.metadata.json"
+    }
+  },
+  "dateDownloaded": "2025-05-25",
+  "activeFilters": {}
+}

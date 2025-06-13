@@ -1,0 +1,298 @@
+{
+    "events": [
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=Tpt_GNSTCuc"
+            },
+            "start_date": {
+                "year": 1974
+            },
+            "text": {
+                "headline": "Beyond Regression: New Tools for Prediction and Analysis in the Behavioral Sciences",
+                "text": "Paul Werbos introdujo el algoritmo de backpropagation en 1974 como método general de optimización para redes neuronales multicapa, formulando la regla de la cadena para derivadas inversas que hizo viable el aprendizaje profundo."
+            }
+        },
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=M3YA8b0R0uI"
+            },
+            "start_date": {
+                "year": 1985
+            },
+            "text": {
+                "headline": "A Learning Algorithm for Boltzmann Machines",
+                "text": "Este video explica cómo Ackley, Hinton y Sejnowski (1985) diseñaron las máquinas de Boltzmann, un modelo de red neuronal estocástica que aprende distribuciones de probabilidad mediante un algoritmo de muestreo de energía."
+            }
+        },
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=oq6Z76Gl0ho"
+            },
+            "start_date": {
+                "year": 1986,
+                "month": 7,
+                "day": 17
+            },
+            "text": {
+                "headline": "Learning Representations by Back‐Propagating Errors",
+                "text": "Rumelhart, Hinton y Williams (1986) popularizaron backpropagation para entrenamiento de redes multicapa, demostrando que podían aprender representaciones profundas ajustando pesos mediante gradiente."
+            }
+        },
+        {
+            "media": {
+                "url": "https://en.wikipedia.org/wiki/Helmholtz_machine"
+            },
+            "start_date": {
+                "year": 1994,
+                "month": 12,
+                "day": 14
+            },
+            "text": {
+                "headline": "The Helmholtz Machine",
+                "text": "Hinton y colaboradores (1995) presentaron la Helmholtz Machine, un modelo generativo que emplea mínimos locales de energía libre y fases de wake-sleep para aprender variables latentes profundas."
+            }
+        },
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=ZUc0Mib5DeI"
+            },
+            "start_date": {
+                "year": 2012,
+                "month": 9,
+                "day": 30
+            },
+            "text": {
+                "headline": "ImageNet Classification with Deep Convolutional Neural Networks",
+                "text": "AlexNet introdujo una arquitectura de red neuronal profunda basada en convoluciones que, al ganar la competición ImageNet 2012, demostró el potencial del aprendizaje profundo para clasificación de imágenes sin preprocesamiento excesivo."
+            }
+        },
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=eyxmSmjmNS0",
+                "caption": "Proponen un nuevo marco para estimar modelos generativos mediante un proceso adversarial de dos redes, donde el generador mejora intentando engañar al discriminador y viceversa."
+            },
+            "start_date": {
+                "year": 2014,
+                "month": 6,
+                "day": 10
+            },
+            "text": {
+                "headline": "Generative Adversarial Networks"
+            }
+        },
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=rjZL7aguLAs",
+                "caption": "Introducen variational autoencoders, una familia de modelos generativos de variables latentes que emplean inferencia variacional y el truco de reparametrización para aprendizaje eficiente."
+            },
+            "start_date": {
+                "year": 2013,
+                "month": 12,
+                "day": 20
+            },
+            "text": {
+                "headline": "Auto-Encoding Variational Bayes"
+            }
+        },
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=GWt6Fu05voI"
+            },
+            "start_date": {
+                "year": 2015,
+                "month": 12,
+                "day": 10
+            },
+            "text": {
+                "headline": "Deep Residual Learning for Image Recognition",
+                "text": "Presentan un marco de aprendizaje residual para entrenar redes muy profundas reformulando las funciones de las capas como diferencias (residuos) en lugar de funciones directas, lo que facilita la optimización."
+            }
+        },
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=iDulhoQ2pro&themeRefresh=1"
+            },
+            "start_date": {
+                "year": 2017,
+                "month": 6,
+                "day": 12
+            },
+            "text": {
+                "headline": "Attention Is All You Need",
+                "text": "\"Attention Is All You Need\" is a 2017 landmark research paper in machine learning authored by eight scientists working at Google. The paper introduced a new deep learning architecture known as the transformer, based on the attention mechanism proposed in 2014 by Bahdanau et al. It is considered a foundational paper in modern artificial intelligence, and a main contributor to the AI boom, as the transformer approach has become the main architecture of a wide variety of AI, such as large language models. At the time, the focus of the research was on improving Seq2seq techniques for machine translation, but the authors go further in the paper, foreseeing the technique's potential for other tasks like question answering and what is now known as multimodal Generative AI.<br>The paper's title is a reference to the song \"All You Need Is Love\" by the Beatles. The name \"Transformer\" was picked because Jakob Uszkoreit, one of the paper's authors, liked the sound of that word. An early design document was titled \"Transformers: Iterative Self-Attention and Processing for Various Tasks\", and included an illustration of six characters from the Transformers franchise. The team was named Team Transformer. Some early examples that the team tried their Transformer architecture on included English-to-German translation, generating Wikipedia articles on \"The Transformer\", and parsing. These convinced the team that the Transformer is a general purpose language model, and not just good for translation. As of 2025, the paper has been cited more than 173,000 times,[10] placing it among top ten most-cited papers of the 21st century."
+            }
+        },
+        {
+            "media": {
+                "url": "https://www.youtube.com/watch?v=-9evrZnBorM",
+                "caption": "Proponen BERT, un modelo de representación de lenguaje que entrena bidireccionalmente usando Transformers, logrando resultados de vanguardia en múltiples tareas de NLP."
+            },
+            "start_date": {
+                "year": 2018,
+                "month": 10,
+                "day": 11
+            },
+            "text": {
+                "headline": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+            }
+        }
+    ],
+    "eras": [
+        {   
+            "text": {
+                "headline": "Precursores y Fundamentos Teóricos",
+                "text": "Desarrollo de las bases matemáticas y filosóficas. Trabajos de Turing, McCulloch-Pitts sobre neuronas artificiales, y primeras máquinas computacionales."
+            },
+            "start_date": {
+                "year": 1936
+            },
+            "end_date": {
+                "year": 1955
+            }
+        },
+        {   
+            "text": {
+                "headline": "Nacimiento Oficial de la IA",
+                "text": "Conferencia de Dartmouth (1956) que acuña el término 'Inteligencia Artificial'. Primeros programas de IA como Logic Theorist y desarrollo de LISP."
+            },
+            "start_date": {
+                "year": 1956
+            },
+            "end_date": {
+                "year": 1965
+            }
+        },
+        {   
+            "text": {
+                "headline": "Primeros Éxitos y Optimismo",
+                "text": "Desarrollo de sistemas expertos tempranos, programas de juegos (damas), y avances en procesamiento de lenguaje natural. Gran optimismo sobre el futuro de la IA."
+            },
+            "start_date": {
+                "year": 1965
+            },
+            "end_date": {
+                "year": 1973
+            }
+        },
+        {   
+            "text": {
+                "headline": "Primer Invierno de la IA",
+                "text": "Reducción drástica de financiación debido a expectativas no cumplidas. Críticas como el Reporte Lighthill. Limitaciones computacionales y de algoritmos se hacen evidentes."
+            },
+            "start_date": {
+                "year": 1974
+            },
+            "end_date": {
+                "year": 1979
+            }
+        },
+        {   
+            "text": {
+                "headline": "Auge de los Sistemas Expertos",
+                "text": "Renacimiento con sistemas expertos comerciales como XCON y MYCIN. Inversión corporativa masiva en IA. Desarrollo de máquinas LISP especializadas."
+            },
+            "start_date": {
+                "year": 1980
+            },
+            "end_date": {
+                "year": 1986
+            }
+        },
+        {   
+            "text": {
+                "headline": "Segundo Invierno de la IA",
+                "text": "Colapso del mercado de sistemas expertos. Limitaciones de los enfoques simbólicos se hacen patentes. Reducción de inversión e investigación."
+            },
+            "start_date": {
+                "year": 1987
+            },
+            "end_date": {
+                "year": 1992
+            }
+        },
+        {   
+            "text": {
+                "headline": "Nuevos Enfoques y Fundamentos",
+                "text": "Desarrollo de métodos estadísticos, algoritmos genéticos, y redes neuronales. Enfoque en problemas específicos más que en IA general."
+            },
+            "start_date": {
+                "year": 1993
+            },
+            "end_date": {
+                "year": 1996
+            }
+        },
+        {   
+            "text": {
+                "headline": "IA Práctica y Comercial",
+                "text": "Deep Blue vence a Kasparov (1997). IA integrada en productos comerciales. Desarrollo de agentes inteligentes y sistemas de recomendación."
+            },
+            "start_date": {
+                "year": 1997
+            },
+            "end_date": {
+                "year": 2005
+            }
+        },
+        {   
+            "text": {
+                "headline": "Era del Big Data y Machine Learning",
+                "text": "Explosión de datos disponibles. Algoritmos de aprendizaje automático se vuelven mainstream. Desarrollo de SVM, Random Forest, y mejoras en redes neuronales."
+            },
+            "start_date": {
+                "year": 2006
+            },
+            "end_date": {
+                "year": 2011
+            }
+        },
+        {   
+            "text": {
+                "headline": "Revolución del Deep Learning",
+                "text": "Resurgimiento de las redes neuronales profundas. AlexNet (2012) revoluciona visión por computadora. Avances en reconocimiento de voz y procesamiento de lenguaje."
+            },
+            "start_date": {
+                "year": 2012
+            },
+            "end_date": {
+                "year": 2016
+            }
+        },
+        {   
+            "text": {
+                "headline": "IA Superhuman en Dominios Específicos",
+                "text": "AlphaGo vence al campeón mundial de Go (2016). Desarrollo de arquitecturas Transformer. IA supera humanos en múltiples tareas específicas."
+            },
+            "start_date": {
+                "year": 2017
+            },
+            "end_date": {
+                "year": 2019
+            }
+        },
+        {   
+            "text": {
+                "headline": "Era de los Modelos de Lenguaje Grandes",
+                "text": "GPT-3 (2020) demuestra capacidades emergentes. Modelos multimodales como DALL-E. Explosión de aplicaciones de IA generativa."
+            },
+            "start_date": {
+                "year": 2020
+            },
+            "end_date": {
+                "year": 2022
+            }
+        },
+        {   
+            "text": {
+                "headline": "IA Generativa Mainstream",
+                "text": "ChatGPT revoluciona el acceso público a IA. Competencia entre grandes modelos de lenguaje. Debates sobre AGI, seguridad y regulación de IA."
+            },
+            "start_date": {
+                "year": 2023
+            },
+            "end_date": {
+                "year": 2025
+            }
+        }
+    ]
+}
