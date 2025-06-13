@@ -15,7 +15,7 @@ st.set_page_config(page_title='Home', layout='wide') # Added layout='wide' for c
 try:
     st.image('src/img/main_header.png')
 except FileNotFoundError:
-    st.error("Header image (img/main_header.png) not found. Ensure the path is correct relative to the app's root directory when running Streamlit.")
+    st.error("Header image (src/img/main_header.png) not found. Ensure the path is correct relative to the app's root directory when running Streamlit.")
 
 
 # Load and display content from README.md
