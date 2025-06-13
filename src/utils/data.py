@@ -74,7 +74,7 @@ def annual_papers():
     log_y_axis = False
     if entity is None:
         # Only show log scale checkbox if no specific entity is selected (scatter plot mode)
-        log_y_axis = st.checkbox("Use log scale for Y-axis (recommended for comparing groups)", value=False)
+        log_y_axis = st.checkbox("Usar escala logarítmica para eje Y", value=False)
 
         fig = px.scatter(
             df.query('Entity == @groups'),
