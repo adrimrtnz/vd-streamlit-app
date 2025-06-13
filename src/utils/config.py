@@ -1,4 +1,4 @@
-DATA_PATH = '../data'
+DATA_PATH = 'data'
 CSV_PUB = 'annual-scholarly-publications-on-artificial-intelligence/annual-scholarly-publications-on-artificial-intelligence.csv'
 CSV_INV = 'global-investment-in-generative-ai/global-investment-in-generative-ai.csv'
 CSV_PRINV = 'private-investment-in-artificial-intelligence/private-investment-in-artificial-intelligence.csv'
