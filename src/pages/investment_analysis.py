@@ -1,9 +1,3 @@
-"""
-Streamlit page for comparative analysis of AI investment data.
-This page displays trends in Global Generative AI investment and Total Private AI
-investment, both as separate charts and as a combined comparison for 'World' data.
-Data is loaded using functions from `src.utils.data`.
-"""
 import streamlit as st
 import plotly.express as px
 import pandas as pd # Import pandas
@@ -24,21 +18,6 @@ with st.sidebar:
 try:
     df_global_gen_ai = load_global_investment_data()
     df_private_ai = load_private_ai_investment_data()
-
-    # Remove placeholder dataframes (or comment them out)
-    # st.subheader("Inversión Global en IA Generativa (Datos Muestra)")
-    # if df_global_gen_ai is not None and not df_global_gen_ai.empty:
-    #     st.dataframe(df_global_gen_ai.head())
-    # else:
-    #     st.warning("No se pudieron cargar los datos de inversión global en IA generativa.")
-
-    # st.subheader("Inversión Privada Total en IA (Datos Muestra)")
-    # if df_private_ai is not None and not df_private_ai.empty:
-    #     st.dataframe(df_private_ai.head())
-    # else:
-    #     st.warning("No se pudieron cargar los datos de inversión privada total en IA.")
-
-    # Side-by-side line charts
     col1, col2 = st.columns(2)
 
     with col1:

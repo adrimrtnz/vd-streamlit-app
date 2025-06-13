@@ -135,6 +135,20 @@
             "text": {
                 "headline": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
             }
+        },
+        {
+            "media": {
+                "url": "https://youtu.be/aMHAhA1v9Zc?si=rzkTjjUIK_sgoktp",
+                "caption": "Recent generations of frontier language models have introduced Large Reasoning Models (LRMs) that generate detailed thinking processes before providing answers. While these models demonstrate improved performance on reasoning benchmarks, their fundamental capabilities, scaling properties, and limitations remain insufficiently understood.[...]"
+            },
+            "start_date": {
+                "year": 2025,
+                "month": 6
+            },
+            "text": {
+                "headline": "The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity",
+                "text": "Recent generations of frontier language models have introduced Large Reasoning Models (LRMs) that generate detailed thinking processes before providing answers. While these models demonstrate improved performance on reasoning benchmarks, their fundamental capabilities, scaling properties, and limitations remain insufficiently understood.[...]"
+            }
         }
     ],
     "eras": [

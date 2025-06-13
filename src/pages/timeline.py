@@ -1,8 +1,3 @@
-"""
-Streamlit page for displaying an interactive timeline of AI-related events.
-The timeline data is loaded from a JSON file and rendered using the
-`streamlit-timeline` component. Users can adjust the height of the timeline.
-"""
 import os
 import streamlit as st
 from streamlit_timeline import timeline
@@ -26,7 +21,7 @@ try:
         data = f.read()
 except FileNotFoundError:
     st.error(f"Error: Timeline data file not found at {data_path}")
-    data = None # Ensure data is None so timeline is not rendered or an error occurs visibly
+    data = None
 except Exception as e:
     st.error(f"Error loading timeline data: {e}")
     data = None
@@ -40,7 +35,7 @@ timeline_height = st.slider(
     step=50
 )
 
-if data: # Only render timeline if data was loaded successfully
+if data:
     timeline(data, height=timeline_height)
 else:
     st.warning("No timeline data to display.")

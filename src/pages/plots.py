@@ -1,8 +1,3 @@
-"""
-Streamlit page for displaying various plots related to AI investment and publications.
-Users can select a plot type from a dropdown menu, and the corresponding
-visualization is rendered using functions from `src/utils/data.py`.
-"""
 import streamlit as st
 
 from utils.constants import options_dict

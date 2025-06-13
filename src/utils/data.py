@@ -5,8 +5,8 @@ import pandas as pd
 import geopandas as gpd
 import plotly.express as px
 import streamlit as st
-from streamlit_folium import st_folium
 import pycountry
+from streamlit_folium import st_folium
 
 from utils.config import DATA_PATH, CSV_PUB, CSV_INV, CSV_PRINV, WORLD_MAP
 
@@ -14,8 +14,6 @@ groups = [
     'Europe', 'South America', 'North America', 'Asia',
     'United States'
     ]
-
-# --- Data Loading Functions ---
 
 def load_annual_papers_data():
     """
@@ -46,7 +44,6 @@ def load_annual_papers_data():
     }, inplace=True)
     return df
 
-# --- Plotting Functions for 'plots.py' page ---
 
 def annual_papers():
     """
@@ -98,11 +95,7 @@ def annual_papers():
         entity_df = df[df['Entity'] == entity]
         if entity_df.empty:
             st.warning(f"No hay datos disponibles para la entidad seleccionada: {entity}.")
-            # Optionally, display an empty chart or simply don't render one
-            # For example, to show a chart with a title indicating no data:
-            # fig = px.bar(title=f'Publicaciones anuales de {entity} (No hay datos)')
-            # st.plotly_chart(fig, use_container_width=True)
-            return # Or st.empty() if you prefer to clear a previous chart explicitly
+            return
 
         fig = px.bar(entity_df,
                      x='Year',
@@ -158,17 +151,16 @@ def global_investment():
         color='Entity',
         title='Evolución de la Inversión en mundial en IA Generativa',
         labels={'Investment': 'Inversión (miles de millones USD)', 'Year': 'Año'},
-        hover_data={'Investment': ':.2fB'} # Format hover data to 2 decimal places, add 'B' for billions
+        hover_data={'Investment': ':.2fB'}
     )
     fig_line.update_layout(
         xaxis_title="Año",
-        yaxis_title="Inversión Mundial (miles de millones USD)" # This label is now accurate
+        yaxis_title="Inversión Mundial (miles de millones USD)"
     )
     st.plotly_chart(fig_line, use_container_width=True)
 
     st.subheader("Estadísticas Clave de Inversión")
     
-    # Determine the number of columns based on the number of unique entities
     unique_entities = df['Entity'].unique()
     num_entities = len(unique_entities)
     cols = st.columns(num_entities if num_entities > 0 else 1)
@@ -182,7 +174,7 @@ def global_investment():
             peak_year = peak_investment_row['Year']
             peak_value = peak_investment_row['Investment']
 
-            current_col = cols[col_index % num_entities] # Cycle through columns
+            current_col = cols[col_index % num_entities]
             with current_col:
                 st.markdown(f"#### {entity_name}")
                 st.metric(
@@ -218,13 +210,12 @@ def load_private_ai_investment_data():
 
     # Rename column for consistency
     df.rename(columns={
-        'Global total private investment in AI': 'Investment' # Specific column name for this CSV
+        'Global total private investment in AI': 'Investment'
     }, inplace=True)
     # Scale unit to Billions USD
     df['Investment'] = df['Investment'] / 1e9
     return df
 
-# --- Data Loading Functions for Map Visualizations ---
 
 def load_annual_papers_map_data():
     """
@@ -243,17 +234,15 @@ def load_annual_papers_map_data():
             - world_geo_df (geopandas.GeoDataFrame): GeoDataFrame with world map shapes.
                                                      Returns an empty GeoDataFrame if geo data is not found/empty.
     """
-    # Load annual scholarly publications data
     try:
         papers_path = os.path.join(DATA_PATH, CSV_PUB)
         papers_df = pd.read_csv(papers_path)
     except FileNotFoundError:
         st.error(f"Error: The data file for annual papers ({CSV_PUB}) was not found at {papers_path}.")
-        papers_df = pd.DataFrame() # Ensure papers_df is an empty DataFrame
+        papers_df = pd.DataFrame()
 
     if papers_df.empty:
-        # No need to proceed with ISO conversion if no data
-        try: # Still try to load geo_data
+        try:
             geo_path = os.path.join(DATA_PATH, WORLD_MAP)
             world_geo_df = gpd.read_file(geo_path)
         except FileNotFoundError:
@@ -288,17 +277,15 @@ def load_annual_papers_map_data():
                 results = pycountry.countries.search_fuzzy(entity_name)
                 if results:
                     iso_code = results[0].alpha_3
-            except Exception: # Catch broad exception for fuzzy search issues
+            except Exception:
                 print(f"Warning: Fuzzy search failed for entity: {entity_name}")
-        except Exception as e: # Catch other potential errors during lookup
+        except Exception as e:
             print(f"Warning: Could not convert entity '{entity_name}' to ISO A3 code. Error: {e}")
 
         if iso_code:
             papers_df.loc[papers_df['Entity'] == entity_name, 'iso_a3'] = iso_code
         else:
             # Optionally, handle specific known mismatches here if pycountry fails
-            # For example, 'United States' is often 'USA' in ISO, pycountry handles this.
-            # 'Russia' -> 'RUS'
             if entity_name == "Russia":
                  papers_df.loc[papers_df['Entity'] == entity_name, 'iso_a3'] = "RUS"
             elif entity_name == "Iran": # Common mismatch: "Iran, Islamic Republic of"
@@ -326,18 +313,14 @@ def load_annual_papers_map_data():
             else:
                  print(f"Warning: Could not convert entity '{entity_name}' to ISO A3 code.")
 
-
-    # Load world geographic data
     try:
         geo_path = os.path.join(DATA_PATH, WORLD_MAP)
         world_geo_df = gpd.read_file(geo_path)
     except FileNotFoundError:
         st.error(f"Error: The geographic data file ({WORLD_MAP}) was not found at {geo_path}.")
-        world_geo_df = gpd.GeoDataFrame() # Return empty GeoDataFrame
-
+        world_geo_df = gpd.GeoDataFrame() 
     return papers_df, world_geo_df
 
-# --- Folium Map Visualization Functions for 'maps.py' page ---
 
 def load_annual_investment_map_data():
     """
@@ -354,7 +337,6 @@ def load_annual_investment_map_data():
             - world_geo_df (geopandas.GeoDataFrame): GeoDataFrame with world map shapes.
                                                      Returns an empty GeoDataFrame if geo data is not found/empty.
     """
-    # Load private investment data
     try:
         investment_path = os.path.join(DATA_PATH, CSV_PRINV)
         investment_df = pd.read_csv(investment_path)
@@ -366,13 +348,8 @@ def load_annual_investment_map_data():
         investment_df.rename(columns={
             'Global total private investment in AI': 'Investment'
         }, inplace=True)
-        investment_df['Investment'] = investment_df['Investment'] / 1e9 # Corrected to 1e9 for Billions
-    else: # If investment_df is empty from the start
-        # Optionally, log or st.warning("Private AI investment data file is empty.")
-        pass
+        investment_df['Investment'] = investment_df['Investment'] / 1e9
 
-
-    # Load world geographic data
     try:
         geo_path = os.path.join(DATA_PATH, WORLD_MAP)
         world_geo_df = gpd.read_file(geo_path)
@@ -419,7 +396,6 @@ def annual_papers_map_folium():
     
     # Filtrar y agregar datos por año
     df_year = df_countries[df_countries['Year'] == selected_year].copy()
-    # Aggregate by iso_a3, ensuring 'Entity' (country name for tooltip) is preserved, e.g., by taking the first.
     df_aggregated = df_year.groupby('iso_a3').agg(
         {'Number of articles': 'sum', 'Entity': 'first'}
     ).reset_index()
@@ -435,18 +411,15 @@ def annual_papers_map_folium():
     
     # Crear el mapa coroplético
     if not df_aggregated.empty:
-        # df_aggregated now uses iso_a3 as the primary key for joining.
-        # The old mapping logic (country_mapping, reverse_mapping, geo_names loop) is no longer needed.
-        
-        geojson_data = world_geo.to_json() # world_geo already has iso_a3
+        geojson_data = world_geo.to_json()
         
         # Crear choropleth
         choropleth = folium.Choropleth(
             geo_data=geojson_data,
             name="Publicaciones por país",
-            data=df_aggregated, # Use df_aggregated directly
-            columns=['iso_a3', 'Number of articles'], # Key on iso_a3
-            key_on="feature.properties.iso_a3", # GeoJSON key is iso_a3
+            data=df_aggregated,
+            columns=['iso_a3', 'Number of articles'],
+            key_on="feature.properties.iso_a3",
             fill_color="YlOrRd",
             fill_opacity=0.7,
             line_opacity=0.2,
@@ -456,9 +429,6 @@ def annual_papers_map_folium():
         )
         choropleth.add_to(m)
         
-        # Update data_dict for tooltips to use iso_a3 as key
-        # It should map iso_a3 to a tuple/dict: (country_name, publications)
-        # df_aggregated has 'iso_a3', 'Number of articles', and 'Entity' (original country name)
         data_dict = {}
         for _, row in df_aggregated.iterrows():
             data_dict[row['iso_a3']] = (row['Entity'], row['Number of articles'])
@@ -475,13 +445,12 @@ def annual_papers_map_folium():
         # Función para crear tooltips
         def create_tooltip(feature):
             iso_a3_code = feature['properties'].get('iso_a3')
-            country_name_display = feature['properties'].get('name', 'País Desconocido') # Default display name
+            country_name_display = feature['properties'].get('name', 'País Desconocido')
 
             tooltip_data = data_dict.get(iso_a3_code)
             
             if tooltip_data:
                 original_entity_name, publications = tooltip_data
-                # Use original_entity_name from our data for consistency if needed, or country_name_display from GeoJSON
                 display_name_for_tooltip = original_entity_name # Or country_name_display
                 tooltip_text = f"""
                 <div style='font-family: Arial; font-size: 14px; padding: 8px; background: white; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);'>
@@ -500,11 +469,6 @@ def annual_papers_map_folium():
                 """
             return tooltip_text
         
-        # Tooltips are now handled by the Choropleth layer if we bind data correctly
-        # or by a separate GeoJson layer if we want more control.
-        # The existing loop for custom tooltips can be adapted or removed if Choropleth handles it.
-        # For simplicity, let's assume Choropleth's tooltip is not sufficient and we add a custom one.
-
         # Add custom tooltips using a GeoJson layer
         # This ensures tooltips appear even for countries with no data in df_aggregated
         folium.GeoJson(
@@ -520,15 +484,9 @@ def annual_papers_map_folium():
                     background-color: white; font-family: sans-serif; font-size: 12px;
                     border: 1px solid black; border-radius: 3px; box-shadow: 3px;
                 """,
-                # This is a placeholder for the actual content, which we'll generate with create_tooltip
-                # Unfortunately, folium.features.GeoJsonTooltip doesn't directly support dynamic content from a function using feature data.
-                # The 'fields' argument just picks properties.
-                # So, we need to iterate and add tooltips individually if create_tooltip is complex.
             )
         ).add_to(m)
 
-        # Re-add the refined tooltip logic by iterating through features
-        # This part is crucial if the Choropleth tooltip is insufficient or if we need custom HTML.
         for feature in json.loads(world_geo.to_json())['features']:
             folium.GeoJson(
                 feature,
@@ -537,9 +495,6 @@ def annual_papers_map_folium():
             ).add_to(m)
 
     # Mostrar estadísticas resumidas
-    # df_aggregated still contains 'Number of articles'
-    # If df_aggregated is empty (e.g. no valid ISO codes found or data for selected year)
-    # these metrics could error or show NaN. Add checks.
     total_countries_with_data = len(df_aggregated) if not df_aggregated.empty else 0
     total_publications = df_aggregated['Number of articles'].sum() if not df_aggregated.empty else 0
     avg_publications = df_aggregated['Number of articles'].mean() if not df_aggregated.empty else 0
@@ -555,8 +510,8 @@ def annual_papers_map_folium():
     # Mostrar mapa con configuración mejorada de tamaño
     map_data = st_folium(
         m, 
-        width=None,  # Usar None para que tome el ancho del contenedor
-        height=600,  # Altura fija
+        width=None,
+        height=600,
         returned_objects=["last_object_clicked"],
         key=f"map_{selected_year}"
     )
@@ -603,7 +558,6 @@ def annual_papers_map_folium():
 
 def load_annual_investment_map_data():
     """Loads and processes data for the annual investment map."""
-    # Load private investment data
     investment_path = os.path.join(DATA_PATH, CSV_PRINV)
     investment_df = pd.read_csv(investment_path)
     investment_df.rename(columns={
@@ -611,7 +565,6 @@ def load_annual_investment_map_data():
     }, inplace=True)
     investment_df['Investment'] = investment_df['Investment'] / 1e9 # Corrected to 1e9 for Billions
 
-    # Load world geographic data
     try:
         geo_path = os.path.join(DATA_PATH, WORLD_MAP)
         world_geo_df = gpd.read_file(geo_path)
@@ -699,7 +652,6 @@ def annual_investment_map_folium():
     
     # Crear el mapa coroplético
     if not df_map.empty:
-        # Convertir GeoDataFrame a GeoJSON string
         geojson_data = world_geo.to_json()
         
         # Crear choropleth
@@ -850,8 +802,6 @@ def annual_investment_map_folium():
     # Mostrar evolución temporal si hay múltiples años
     if len(years) > 1: # years comes from df_filtered, which is already checked for empty
         st.subheader("Evolución Temporal de la Inversión")
-        # df_filtered is already checked for empty at the beginning of the function
-        # where 'years' is derived. If df_filtered was empty, it would have returned.
         fig_line = px.line(
             df_filtered, 
             x='Year', 
